@@ -47,7 +47,7 @@ async function main() {
          {
             title: "Go to the gym",
             description: "Workout for 45 minutes",
-            priority: "High",
+            priority: "HIGH",
             completed: false,
             projectId: project1.id,
             assignedToId: user.id,
@@ -55,7 +55,7 @@ async function main() {
          {
             title: "Read a book",
             description: "Finish 2 chapters",
-            priority: "Medium",
+            priority: "MEDIUM",
             completed: true,
             projectId: project1.id,
             assignedToId: user.id,
@@ -63,7 +63,7 @@ async function main() {
          {
             title: "Meditate",
             description: "10 minutes meditation",
-            priority: "Low",
+            priority: "LOW",
             completed: false,
             projectId: project1.id,
             assignedToId: mockUser.id,
@@ -77,7 +77,7 @@ async function main() {
          {
             title: "Finish report",
             description: "Complete quarterly performance report",
-            priority: "High",
+            priority: "HIGH",
             completed: false,
             projectId: project2.id,
             assignedToId: user.id,
@@ -85,7 +85,7 @@ async function main() {
          {
             title: "Client meeting",
             description: "Discuss project roadmap",
-            priority: "Medium",
+            priority: "MEDIUM",
             completed: true,
             projectId: project2.id,
             assignedToId: user.id,
@@ -93,7 +93,7 @@ async function main() {
          {
             title: "Code review",
             description: "Review team PRs",
-            priority: "Low",
+            priority: "LOW",
             completed: false,
             projectId: project2.id,
             assignedToId: mockUser.id,

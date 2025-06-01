@@ -1,3 +1,4 @@
+import type { Priority } from '@prisma/client';
 import prisma from "../lib/prisma";
 
 export const getTasksByProject = async (projectId: number) => {
@@ -7,7 +8,7 @@ export const getTasksByProject = async (projectId: number) => {
 export const createTask = async (data: {
    title: string;
    description?: string;
-   priority: string;
+   priority: Priority;
    assignedToId?: number | null;
    projectId: number;
 }) => {
