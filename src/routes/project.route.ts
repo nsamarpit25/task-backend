@@ -7,6 +7,5 @@ const router = Router();
 router.get("/", authenticate, getAllProjects);
 router.post("/", authenticate, addProject);
 router.delete('/:id', authenticate, deleteProjectById)
-router.pud('/:id', authenticate, upateProjectById)
 
 export default router;
