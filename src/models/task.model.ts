@@ -25,3 +25,9 @@ export const updateTask = async (taskId: number, updates: any) => {
 export const deleteTask = async (taskId: number) => {
    return prisma.task.delete({ where: { id: taskId } });
 };
+
+export const getAllTheTasksAssignedToUser =  async (userId: number) => {
+   return prisma.user.findUnique({where: {id: userId}, select: {
+      tasks: true
+   }})
+}

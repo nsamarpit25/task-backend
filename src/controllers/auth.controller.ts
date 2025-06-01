@@ -6,7 +6,6 @@ import { findUserByEmail } from "../models/user.model";
 const JWT_SECRET = process.env.JWT_SECRET as string;
 
 export const loginUser = async (req: Request, res: Response) => {
-   console.log("req.body",req.body)
    const { email, password } = req.body;
    try {
       const user = await findUserByEmail(email);
@@ -27,6 +26,7 @@ export const loginUser = async (req: Request, res: Response) => {
 
       res.json({ token });
    } catch (err) {
+      console.error(err)
       res.status(500).json({ message: "Server error" });
    }
 };

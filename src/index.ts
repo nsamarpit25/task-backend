@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import authRouter from './routes/auth.router';
 import projectRoute from './routes/project.route';
 import taskRouter from './routes/task.route'
+import usersRouter from './routes/user.router';
 
 dotenv.config();
 
@@ -20,7 +21,8 @@ app.get("/", (req, res) => {
 app.use('/api/auth', authRouter);
 app.use('/api/projects', projectRoute)
 app.use('/api/tasks', taskRouter)
+app.use("/api/users", usersRouter);
 
 app.listen(PORT, () => {
-   console.log(`Server running on http://localhost:${PORT}`);
+   console.log(`Server started....`);
 });

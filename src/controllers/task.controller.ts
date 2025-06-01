@@ -4,7 +4,20 @@ import {
    createTask,
    updateTask,
    deleteTask,
+   getAllTheTasksAssignedToUser,
 } from "../models/task.model";
+
+export const getTasksByUserId = async (req: Request, res: Response) =>{
+   const userId = Number((req as any).userId);
+
+   try {
+      const user = await getAllTheTasksAssignedToUser(userId);
+      res.json(user?.tasks);
+   } catch (err){
+      console.log(err);
+      res.send(500).json({message: 'Failed to get tasks'})
+   }
+}
 
 export const getTasks = async (req: Request, res: Response) => {
    const projectId = Number(req.query.projectId);
@@ -16,7 +29,8 @@ export const getTasks = async (req: Request, res: Response) => {
    try {
       const tasks = await getTasksByProject(projectId);
       res.json(tasks);
-   } catch {
+   } catch (err) {
+      console.error(err)
       res.status(500).json({ message: "Failed to fetch tasks" });
    }
 };
@@ -39,7 +53,8 @@ export const addTask = async (req: Request, res: Response) => {
       });
 
       res.status(201).json(newTask);
-   } catch {
+   } catch (err) {
+      console.error(err)
       res.status(500).json({ message: "Failed to create task" });
    }
 };
@@ -51,7 +66,8 @@ export const updateTaskById = async (req: Request, res: Response) => {
    try {
       const updated = await updateTask(taskId, updates);
       res.json(updated);
-   } catch {
+   } catch (err) {
+      console.error(err)
       res.status(500).json({ message: "Failed to update task" });
    }
 };
@@ -62,7 +78,8 @@ export const deleteTaskById = async (req: Request, res: Response) => {
    try {
       await deleteTask(taskId);
       res.json({ message: "Task deleted" });
-   } catch {
+   } catch (err) {
+      console.error(err)
       res.status(500).json({ message: "Failed to delete task" });
    }
 };

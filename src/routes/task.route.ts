@@ -4,14 +4,16 @@ import {
    addTask,
    updateTaskById,
    deleteTaskById,
+   getTasksByUserId,
 } from "../controllers/task.controller";
 import { authenticate } from "../middleware/authMiddleware";
 
 const router = Router();
 
-router.get("/", authenticate, getTasks); // GET /api/tasks?projectId=...
-router.post("/", authenticate, addTask); // POST /api/tasks
-router.put("/:id", authenticate, updateTaskById); // PUT /api/tasks/:id
-router.delete("/:id", authenticate, deleteTaskById); // DELETE /api/tasks/:id
+router.get('/me', authenticate, getTasksByUserId)
+router.get("/", authenticate, getTasks);
+router.post("/", authenticate, addTask);
+router.put("/:id", authenticate, updateTaskById);
+router.delete("/:id", authenticate, deleteTaskById);
 
 export default router;
